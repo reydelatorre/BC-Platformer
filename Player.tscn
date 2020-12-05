@@ -1,0 +1,49 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/player/mark_idle.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/mark_run_05.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/mark_run_09.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=4]
+[ext_resource path="res://assets/player/mark_run_08.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/mark_run_07.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/mark_run_10.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/mark_run_06.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/mark_run_02.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/mark_run_04.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/mark_run_03.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/mark_run_01.png" type="Texture" id=12]
+[ext_resource path="res://assets/player/mark_jump_04.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 31.1387, 46.3541 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.23878, -2.94591 )
+shape = SubResource( 4 )
