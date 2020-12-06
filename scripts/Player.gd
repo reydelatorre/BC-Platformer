@@ -48,7 +48,7 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector2.UP)
 
 	velocity.x = lerp(velocity.x, 0, LERPSPEED)
-
+	
 
 func _on_area2d__fallzone_body_entered(body):
 	if (body.get_name() == "Player"):
