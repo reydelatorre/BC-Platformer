@@ -2,10 +2,13 @@ extends CanvasLayer
 
 var insomnia_coins = 0
 var postman_coins = 0
+var techlead_coins = 0
 var troll_coins = 0
 
-const INSOMNIA_COINS_MAX_WIN = 20
+const INSOMNIA_COINS_MAX_WIN = 8
 const POSTMAN_COINS_MAX_WIN = 10
+const TECHLEAD_COINS_MAX_WIN = 2
+const TROLL_COINS_MAX_WIN = 1
 
 
 func _ready():

@@ -61,7 +61,7 @@
 2/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1632.5, 52.2999 )
+extents = Vector2( 2172, 52.2999 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 0.454902 )
@@ -130,7 +130,7 @@ position = Vector2( -346.5, 1 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area2d - fallzone"]
-position = Vector2( 1412.5, 852.5 )
+position = Vector2( 1690.5, 855 )
 shape = SubResource( 2 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
