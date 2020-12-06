@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tilemap_front_level01.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/environment/coins/postman_coin_texture.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://HUD.gd" type="Script" id=13]
+[ext_resource path="res://assets/environment/coins/troll.png" type="Texture" id=14]
+[ext_resource path="res://troll_coin.tscn" type="PackedScene" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "trees2_1.png 0"
@@ -66,7 +68,11 @@ bg_color = Color( 1, 1, 1, 0.454902 )
 shadow_offset = Vector2( 4, 4 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 35
+size = 24
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
 font_data = ExtResource( 12 )
 
 [node name="Level01" type="Node2D"]
@@ -134,8 +140,46 @@ script = ExtResource( 13 )
 margin_left = 29.0
 margin_top = 25.0
 margin_right = 352.0
-margin_bottom = 102.0
+margin_bottom = 144.0
 custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="insomnia_label" type="Label" parent="HUD"]
+margin_left = 85.2349
+margin_top = 33.2942
+margin_right = 227.235
+margin_bottom = 102.294
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.243137, 0.192157, 0.580392, 1 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="postman_label" type="Label" parent="HUD"]
+margin_left = 85.0
+margin_top = 65.0
+margin_right = 326.0
+margin_bottom = 134.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.701961, 0.270588, 0.113725, 1 )
+text = "0
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="troll_label" type="Label" parent="HUD"]
+margin_left = 85.2349
+margin_top = 100.765
+margin_right = 156.235
+margin_bottom = 133.765
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,19 +195,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HUD/InsomniaTextureRect"]
-margin_left = 64.6659
-margin_top = 0.732124
-margin_right = 274.666
-margin_bottom = 97.7321
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.243137, 0.192157, 0.580392, 1 )
-text = "0
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PostmanTextureRect" type="TextureRect" parent="HUD"]
 margin_left = 41.5924
 margin_top = 68.5938
@@ -175,15 +206,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HUD/PostmanTextureRect"]
-margin_left = 66.4275
-margin_top = 1.56735
-margin_right = 276.427
-margin_bottom = 98.5674
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.701961, 0.270588, 0.113725, 1 )
-text = "0
-"
+[node name="TrollTextureRect" type="TextureRect" parent="HUD"]
+margin_left = 40.0
+margin_top = 104.0
+margin_right = 1031.0
+margin_bottom = 910.0
+rect_scale = Vector2( 0.032, 0.032 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -227,8 +256,19 @@ position = Vector2( 1068, 480 )
 [node name="postman_coin6" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1840, 544 )
 
-[node name="postman_coin7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1664, 640 )
+[node name="postman_coin8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1600, 648 )
+
+[node name="postman_coin9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1728, 648 )
+
+[node name="troll_coin" parent="." instance=ExtResource( 15 )]
+position = Vector2( 624, 648 )
+scale = Vector2( 2, 2 )
+
+[node name="troll_coin2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1664, 654.497 )
+scale = Vector2( 2, 2 )
 [connection signal="body_entered" from="area2d - fallzone" to="Player" method="_on_area2d__fallzone_body_entered"]
 [connection signal="insomnia_coin_collected" from="insomnia_coin" to="HUD" method="_on_insomnia_coin_collected"]
 [connection signal="insomnia_coin_collected" from="insomnia_coin2" to="HUD" method="_on_insomnia_coin_collected"]
@@ -243,4 +283,7 @@ position = Vector2( 1664, 640 )
 [connection signal="postman_coin_collected" from="postman_coin4" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="postman_coin5" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="postman_coin6" to="HUD" method="_on_postman_coin_collected"]
-[connection signal="postman_coin_collected" from="postman_coin7" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="postman_coin8" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="postman_coin9" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="troll_coin_collected" from="troll_coin" to="HUD" method="_on_troll_coin_collected"]
+[connection signal="troll_coin_collected" from="troll_coin2" to="HUD" method="_on_troll_coin_collected"]
