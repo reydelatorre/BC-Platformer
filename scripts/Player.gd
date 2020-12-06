@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 220
+const SPEED = 280
 const GRAVITY = 18
 const JUMPFORCE = -480
 const LERPSPEED = 0.2
@@ -48,3 +48,8 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector2.UP)
 
 	velocity.x = lerp(velocity.x, 0, LERPSPEED)
+
+
+func _on_area2d__fallzone_body_entered(body):
+	if (body.get_name() == "Player"):
+		get_tree().change_scene("res://Level01.tscn")

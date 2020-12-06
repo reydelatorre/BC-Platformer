@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilemap_front_level01.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/environment/Objects/trees2_1.png" type="Texture" id=4]
 [ext_resource path="res://assets/environment/Objects/trees2_2.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/set2_background.png" type="Texture" id=6]
+[ext_resource path="res://assets/environment/clouds.png" type="Texture" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "trees2_1.png 0"
@@ -51,6 +52,9 @@
 2/shapes = [  ]
 2/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1305.8, 52.2999 )
+
 [node name="Level01" type="Node2D"]
 
 [node name="tilemap - decorations" type="TileMap" parent="."]
@@ -89,5 +93,17 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="nearby" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.752941 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 1000, 724 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/nearby"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="area2d - fallzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area2d - fallzone"]
+position = Vector2( 1304, 751.5 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="area2d - fallzone" to="Player" method="_on_area2d__fallzone_body_entered"]
