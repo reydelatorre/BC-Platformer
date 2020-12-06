@@ -2,6 +2,8 @@ extends Area2D
 
 signal insomnia_coin_collected
 
+# TODO: DRY logic in parent class wtf 
+
 func _on_insomnia_coin_body_entered(body):
 	$AnimationPlayer.play("bounce")
 	emit_signal("insomnia_coin_collected") 
