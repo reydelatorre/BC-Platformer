@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/enemies/nick_throw.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/nick_idle_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/nick_idle_02.png" type="Texture" id=3]
+[ext_resource path="res://Nick.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "fire",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 56 )
+
+[node name="enemy_nick" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

@@ -9,11 +9,6 @@ var double_jump_count = 1
 
 var velocity = Vector2(0, 0)
 
-# if player chooses Postman: 
-# you will now suffer the gravity of the situation
-# increase gravity by 80
-# andrew thumbsdown pic
-
 
 func process_jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():

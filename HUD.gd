@@ -17,8 +17,8 @@ func _ready():
 	$troll_label.text = String(troll_coins)
 
 func _physics_process(delta):
-	if insomnia_coins == INSOMNIA_COINS_MAX_WIN:
-		get_tree().change_scene("res://Level01.tscn")
+	# check if all maxes are met
+	pass
 
 func _on_insomnia_coin_collected():
 	insomnia_coins = insomnia_coins + 1
