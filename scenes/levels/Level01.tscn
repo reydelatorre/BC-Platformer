@@ -1,21 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://tilemap_front_level01.tres" type="TileSet" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tilemaps/tilemap_front_level01.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/environment/Objects/trees2_3.png" type="Texture" id=3]
 [ext_resource path="res://assets/environment/Objects/trees2_1.png" type="Texture" id=4]
 [ext_resource path="res://assets/environment/Objects/trees2_2.png" type="Texture" id=5]
 [ext_resource path="res://assets/environment/set2_background.png" type="Texture" id=6]
 [ext_resource path="res://assets/environment/clouds.png" type="Texture" id=7]
-[ext_resource path="res://insomnia_coin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://postman_coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/coins/insomnia_coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/coins/postman_coin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/coins/insomnia_coin_texture.png" type="Texture" id=10]
 [ext_resource path="res://assets/environment/coins/postman_coin_texture.png" type="Texture" id=11]
 [ext_resource path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://HUD.gd" type="Script" id=13]
-[ext_resource path="res://Nick.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Hagay.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Hagay.gd" type="Script" id=18]
+[ext_resource path="res://scripts/HUD.gd" type="Script" id=13]
+[ext_resource path="res://scenes/enemies/Nick.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/enemies/Hagay.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 0/name = "trees2_1.png 0"
@@ -65,7 +64,7 @@
 extents = Vector2( 2172, 52.2999 )
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 1, 1, 1, 0.454902 )
+bg_color = Color( 1, 1, 1, 0.243137 )
 shadow_offset = Vector2( 4, 4 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -79,7 +78,7 @@ tile_set = SubResource( 1 )
 format = 1
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 264, 272 )
+position = Vector2( 1990, 231 )
 collision_mask = 30
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -246,26 +245,28 @@ position = Vector2( 1840, 544 )
 [node name="postman_coin8" parent="coins" instance=ExtResource( 9 )]
 position = Vector2( 1664, 648 )
 
+[node name="postman_coin11" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1472, 648 )
+
 [node name="postman_coin9" parent="coins" instance=ExtResource( 9 )]
 position = Vector2( 1728, 648 )
 
-[node name="enemy_nick" parent="." instance=ExtResource( 16 )]
+[node name="enemies" type="Node" parent="."]
+
+[node name="enemy_nick" parent="enemies" instance=ExtResource( 16 )]
 position = Vector2( 2272, 338 )
-collision_layer = 16
 collision_mask = 51
 
-[node name="enemy_hagay" parent="." instance=ExtResource( 17 )]
+[node name="enemy_hagay" parent="enemies" instance=ExtResource( 17 )]
 position = Vector2( 336, -48 )
 collision_layer = 16
 collision_mask = 51
-script = ExtResource( 18 )
 detect_edges = false
 
-[node name="enemy_hagay2" parent="." instance=ExtResource( 17 )]
+[node name="enemy_hagay2" parent="enemies" instance=ExtResource( 17 )]
 position = Vector2( 1024, -16 )
 collision_layer = 16
 collision_mask = 51
-script = ExtResource( 18 )
 direction = -1
 [connection signal="body_entered" from="area2d - fallzone" to="Player" method="_on_area2d__fallzone_body_entered"]
 [connection signal="insomnia_coin_collected" from="coins/insomnia_coin" to="HUD" method="_on_insomnia_coin_collected"]
@@ -284,4 +285,5 @@ direction = -1
 [connection signal="postman_coin_collected" from="coins/postman_coin5" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin6" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin8" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin11" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin9" to="HUD" method="_on_postman_coin_collected"]

@@ -21,14 +21,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": false,
 "name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
 "speed": 12.0
 } ]
 
@@ -47,3 +47,7 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.23878, -2.94591 )
 shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

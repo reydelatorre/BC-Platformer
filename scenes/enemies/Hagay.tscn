@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/enemies/hagay_05.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/hagay_04.png" type="Texture" id=2]
 [ext_resource path="res://assets/enemies/hagay_03.png" type="Texture" id=3]
 [ext_resource path="res://assets/enemies/hagay_02.png" type="Texture" id=4]
 [ext_resource path="res://assets/enemies/hagay_01.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Hagay.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,15 +16,19 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 104.431, 78.4453 )
+extents = Vector2( 83.0423, 78.4453 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 115.49, 93.3086 )
 
 [node name="enemy_hagay" type="KinematicBody2D"]
 scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "crawl"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,3 +39,12 @@ shape = SubResource( 2 )
 enabled = true
 cast_to = Vector2( 0, 115 )
 collision_mask = 2147483650
+
+[node name="Area2D_Sides" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Sides"]
+position = Vector2( -1.98156, 19.3201 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Area2D_Sides" to="." method="_on_Area2D_Sides_body_entered"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/enemies/nick_throw.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemies/nick_idle_01.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/nick_idle_02.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Nick.gd" type="Script" id=4]
+[ext_resource path="res://assets/fx/big_enemy_explode_01.png" type="Texture" id=5]
+[ext_resource path="res://assets/fx/big_enemy_explode_07.png" type="Texture" id=6]
+[ext_resource path="res://assets/fx/big_enemy_explode_08.png" type="Texture" id=7]
+[ext_resource path="res://assets/fx/big_enemy_explode_09.png" type="Texture" id=8]
+[ext_resource path="res://assets/fx/big_enemy_explode_06.png" type="Texture" id=9]
+[ext_resource path="res://assets/fx/big_enemy_explode_03.png" type="Texture" id=10]
+[ext_resource path="res://assets/fx/big_enemy_explode_04.png" type="Texture" id=11]
+[ext_resource path="res://assets/fx/big_enemy_explode_05.png" type="Texture" id=12]
+[ext_resource path="res://assets/fx/big_enemy_explode_02.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "explode",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "fire",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 41.0668 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 22.7491, 14.0928 )
+
+[node name="enemy_nick" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+collision_layer = 16
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.16098, 18.0505 )
+shape = SubResource( 2 )
+
+[node name="Area2D_Top_Hit" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Top_Hit"]
+position = Vector2( -4.57619, -38.3891 )
+shape = SubResource( 3 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Area2D_Top_Hit" to="." method="_on_Area2D_Top_Hit_body_entered"]

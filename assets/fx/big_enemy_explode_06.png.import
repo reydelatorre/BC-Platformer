@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clouds.png-9cccf82447fab240317052fbddfad51d.stex"
+path="res://.import/big_enemy_explode_06.png-c68586cd01cf7bd2141b0ffa228d7ed2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/clouds.png"
-dest_files=[ "res://.import/clouds.png-9cccf82447fab240317052fbddfad51d.stex" ]
+source_file="res://assets/fx/big_enemy_explode_06.png"
+dest_files=[ "res://.import/big_enemy_explode_06.png-c68586cd01cf7bd2141b0ffa228d7ed2.stex" ]
 
 [params]
 
