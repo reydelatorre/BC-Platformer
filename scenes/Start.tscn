@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/start/mega-mark-1-title.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PlayButton.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/mega-mark-1-title.png-060223d4d0fa7cee37e5aa3983bb7dc9.stex"
 
 [node name="Start" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = SubResource( 1 )
 centered = false
 
 [node name="PlayButton" type="Button" parent="."]

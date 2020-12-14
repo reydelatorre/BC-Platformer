@@ -67,8 +67,8 @@ func _physics_process(delta):
 
 func _on_area2d__fallzone_body_entered(body):
 	if (body.get_name() == "Player"):
-		get_tree().change_scene("res://scenes/levels/Level01.tscn")
+		get_tree().change_scene("res://scenes/GameOver.tscn")
 
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/levels/Level01.tscn")
+	get_tree().change_scene("res://scenes/GameOver.tscn")

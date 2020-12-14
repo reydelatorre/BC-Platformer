@@ -148,27 +148,25 @@ __meta__ = {
 }
 
 [node name="insomnia_label" type="Label" parent="HUD"]
-margin_left = 85.2349
-margin_top = 33.2942
-margin_right = 227.235
-margin_bottom = 102.294
+margin_left = 85.0
+margin_top = 33.0
+margin_right = 99.0
+margin_bottom = 66.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.243137, 0.192157, 0.580392, 1 )
-text = "0
-"
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="postman_label" type="Label" parent="HUD"]
-margin_left = 85.2349
+margin_left = 85.0
 margin_top = 66.0
-margin_right = 326.235
-margin_bottom = 135.0
+margin_right = 99.0
+margin_bottom = 99.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.701961, 0.270588, 0.113725, 1 )
-text = "0
-"
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -221,9 +219,6 @@ position = Vector2( 1840, 480 )
 [node name="insomnia_coin6" parent="coins" instance=ExtResource( 8 )]
 position = Vector2( 1904, 352 )
 
-[node name="postman_coin2" parent="coins" instance=ExtResource( 9 )]
-position = Vector2( 672, 448 )
-
 [node name="postman_coin3" parent="coins" instance=ExtResource( 9 )]
 position = Vector2( 736, 448 )
 
@@ -247,6 +242,27 @@ position = Vector2( 1472, 648 )
 
 [node name="postman_coin9" parent="coins" instance=ExtResource( 9 )]
 position = Vector2( 1728, 648 )
+
+[node name="postman_coin12" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1537.5, 648.5 )
+
+[node name="postman_coin13" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1601.5, 648.5 )
+
+[node name="postman_coin14" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1664, 589.5 )
+
+[node name="postman_coin15" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1472, 589.5 )
+
+[node name="postman_coin16" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1728, 589.5 )
+
+[node name="postman_coin17" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1537.5, 590 )
+
+[node name="postman_coin18" parent="coins" instance=ExtResource( 9 )]
+position = Vector2( 1601.5, 590 )
 
 [node name="enemies" type="Node" parent="."]
 
@@ -274,7 +290,6 @@ direction = -1
 [connection signal="insomnia_coin_collected" from="coins/insomnia_coin7" to="HUD" method="_on_insomnia_coin_collected"]
 [connection signal="insomnia_coin_collected" from="coins/insomnia_coin8" to="HUD" method="_on_insomnia_coin_collected"]
 [connection signal="insomnia_coin_collected" from="coins/insomnia_coin6" to="HUD" method="_on_insomnia_coin_collected"]
-[connection signal="postman_coin_collected" from="coins/postman_coin2" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin3" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin10" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin4" to="HUD" method="_on_postman_coin_collected"]
@@ -283,3 +298,10 @@ direction = -1
 [connection signal="postman_coin_collected" from="coins/postman_coin8" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin11" to="HUD" method="_on_postman_coin_collected"]
 [connection signal="postman_coin_collected" from="coins/postman_coin9" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin12" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin13" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin14" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin15" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin16" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin17" to="HUD" method="_on_postman_coin_collected"]
+[connection signal="postman_coin_collected" from="coins/postman_coin18" to="HUD" method="_on_postman_coin_collected"]

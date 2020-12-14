@@ -10,8 +10,8 @@ const TECHLEAD_COINS_MAX_WIN = 2
 
 
 func _ready():
-	$insomnia_label.text = String(insomnia_coins)
-	$postman_label.text = String(postman_coins)
+	$insomnia_label.text = String(insomnia_coins) + "/10"
+	$postman_label.text = String(postman_coins) + "/15"
 
 func _physics_process(delta):
 	# check if all maxes are met
