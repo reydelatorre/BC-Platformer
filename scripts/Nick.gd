@@ -7,6 +7,8 @@ onready var animated_sprite = $AnimatedSprite
 onready var area2d_top_hit = $Area2D_Top_Hit
 onready var raycast2d_player_in_view = $RayCast2D
 
+var animation_utils_instance = animation_utils.new()
+
 func _on_Area2D_Top_Hit_body_entered(body):
 	body.bounce()
 	
@@ -30,6 +32,5 @@ func _process(delta):
 	if alive == false:
 		animation_state = 'explode'
 		
-	if animated_sprite.animation != animation_state:
-		animated_sprite.play(animation_state)
+	animation_utils_instance.process_animation(animated_sprite, animation_state)
 		
