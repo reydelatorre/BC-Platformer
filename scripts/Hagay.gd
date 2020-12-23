@@ -7,20 +7,24 @@ export var detect_edges = true
 const GRAVITY = 20
 const SPEED = 100
 
+onready var animated_sprite = $AnimatedSprite
+onready var collision_shape2d = $CollisionShape2D
+onready var raycast2d = $RayCast2D
+
 func _ready():
-	$AnimatedSprite.flip_h = (false if direction == 1 else true)
-	$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * direction
-	$RayCast2D.enabled = detect_edges
+	animated_sprite.flip_h = (false if direction == 1 else true)
+	raycast2d.position.x = collision_shape2d.shape.get_extents().x * direction
+	raycast2d.enabled = detect_edges
 	
 func apply_gravity():
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	
 func wall_collide():
-	if is_on_wall() or not $RayCast2D.is_colliding() and detect_edges and is_on_floor():
+	if is_on_wall() or not raycast2d.is_colliding() and detect_edges and is_on_floor():
 		direction = direction * -1
-		$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
-		$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * direction
+		animated_sprite.flip_h = not animated_sprite.flip_h
+		raycast2d.position.x = collision_shape2d.shape.get_extents().x * direction
 	
 func _physics_process(delta):
 	apply_gravity()

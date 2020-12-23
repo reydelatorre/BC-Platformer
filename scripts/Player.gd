@@ -12,6 +12,10 @@ var double_jump_count = 1
 
 var velocity = Vector2(0, 0)
 
+onready var animated_sprite = $AnimatedSprite
+onready var timer = $Timer
+onready var position2d = $Position2D
+
 
 func process_jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -23,7 +27,7 @@ func process_jump():
 	if is_on_floor():
 		double_jump_count = 1
 	else:
-		$AnimatedSprite.play("jump")
+		animated_sprite.play("jump")
 	
 
 func bounce():
@@ -42,7 +46,7 @@ func hurt(var enemy_pos_x):
 	Input.action_release("left")
 	Input.action_release("right")
 	
-	$Timer.start()
+	timer.start()
 
 
 func _physics_process(delta):
@@ -51,19 +55,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
-		$AnimatedSprite.play("run")
-		$AnimatedSprite.flip_h = false
+		animated_sprite.play("run")
+		animated_sprite.flip_h = false
 	elif Input.is_action_pressed("left"):
 		velocity.x = -SPEED
-		$AnimatedSprite.play("run")
-		$AnimatedSprite.flip_h = true
+		animated_sprite.play("run")
+		animated_sprite.flip_h = true
 	else:
-		$AnimatedSprite.play("idle")
+		animated_sprite.play("idle")
 		
 	if Input.is_action_just_pressed("fire"):
 		var fireball = FIREBALL.instance()
 		get_parent().add_child(fireball)
-		fireball.position = $Position2D.global_position
+		fireball.position = position2d.global_position
 	
 	process_jump()
 		
