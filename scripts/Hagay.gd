@@ -12,10 +12,6 @@ func _ready():
 	$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$RayCast2D.enabled = detect_edges
 	
-	if detect_edges:
-		set_modulate(Color(0.6, 0.6, 0.8))
-	
-
 func apply_gravity():
 	if not is_on_floor():
 		velocity.y += GRAVITY

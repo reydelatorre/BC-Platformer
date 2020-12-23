@@ -6,6 +6,8 @@ const JUMPFORCE = -480
 const BOUNCEFORCE = -420
 const LERPSPEED = 0.2
 
+const FIREBALL = preload("res://scenes/Fireball.tscn")
+
 var double_jump_count = 1
 
 var velocity = Vector2(0, 0)
@@ -57,6 +59,11 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = true
 	else:
 		$AnimatedSprite.play("idle")
+		
+	if Input.is_action_just_pressed("fire"):
+		var fireball = FIREBALL.instance()
+		get_parent().add_child(fireball)
+		fireball.position = $Position2D.global_position
 	
 	process_jump()
 		
