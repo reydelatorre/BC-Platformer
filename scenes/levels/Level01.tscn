@@ -175,7 +175,7 @@ position = Vector2( 1840, 480 )
 position = Vector2( 1904, 352 )
 
 [node name="insomnia_coin9" parent="coins" instance=ExtResource( 8 )]
-position = Vector2( 2360, 352 )
+position = Vector2( 2486, 352 )
 
 [node name="insomnia_coin10" parent="coins" instance=ExtResource( 8 )]
 position = Vector2( 2429.5, 352 )
@@ -231,7 +231,7 @@ position = Vector2( 1601.5, 590 )
 [node name="enemies" type="Node" parent="."]
 
 [node name="enemy_nick" parent="enemies" instance=ExtResource( 16 )]
-position = Vector2( 2272, 338 )
+position = Vector2( 2344, 338 )
 collision_mask = 51
 
 [node name="enemy_hagay" parent="enemies" instance=ExtResource( 17 )]

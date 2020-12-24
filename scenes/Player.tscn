@@ -52,5 +52,5 @@ shape = SubResource( 2 )
 one_shot = true
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 36.3767, 4.63223 )
+position = Vector2( 0.272575, 3.2698 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

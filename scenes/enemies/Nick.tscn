@@ -21,15 +21,15 @@ animations = [ {
 "name": "idle",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "explode",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "fire",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "explode",
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -48,24 +48,38 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "idle"
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.16098, 18.0505 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 enabled = true
-cast_to = Vector2( 0, 500 )
+cast_to = Vector2( 0, 380 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Area2D_Top_Hit" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 33
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Top_Hit"]
 position = Vector2( -4.57619, -38.3891 )
 shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -53.8929, 7.3574 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="tree_entered" from="RayCast2D" to="." method="_on_RayCast2D_tree_entered"]
 [connection signal="tree_exited" from="RayCast2D" to="." method="_on_RayCast2D_tree_exited"]

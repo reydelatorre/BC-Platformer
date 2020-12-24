@@ -9,9 +9,9 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "poof",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -20,20 +20,23 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.1962, 24.5448 )
+extents = Vector2( 7.968, 6.24678 )
 
-[node name="Fireball" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Fireball" type="Area2D"]
+collision_mask = 18
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 animation = "fire"
+playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.135338, -0.13533 )
 shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="Area2D" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
