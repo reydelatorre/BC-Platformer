@@ -69,5 +69,5 @@ pitch_scale = 2.0
 
 [node name="AudioStreamPlayer2DHurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 15 )
-volume_db = -8.0
+volume_db = -18.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

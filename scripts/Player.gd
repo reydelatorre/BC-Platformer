@@ -17,6 +17,9 @@ var double_jump_count = 1
 var player_facing = PlayerDirection.RIGHT
 
 var velocity = Vector2(0, 0)
+export var hit_points = 10
+
+signal mark_hurt
 
 
 func _physics_process(delta):
@@ -82,7 +85,9 @@ func bounce():
 
 func hurt(var enemy_pos_x):
 	$AudioStreamPlayer2DHurt.play()
-	set_modulate(Color(1, 0.3, 0.3, 0.3))
+	
+	emit_signal('mark_hurt')
+
 	velocity.y = JUMPFORCE * 0.5
 	
 	if position.x < enemy_pos_x:
@@ -93,4 +98,7 @@ func hurt(var enemy_pos_x):
 	Input.action_release("left")
 	Input.action_release("right")
 	
-	$Timer.start()
+	hit_points -= 1
+
+	if hit_points <= 0:
+		$Timer.start()

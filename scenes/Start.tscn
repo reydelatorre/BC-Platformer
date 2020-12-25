@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/Start.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Start.gd" type="Script" id=1]
 [ext_resource path="res://scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://assets/music/megamark_splash.wav" type="AudioStream" id=3]
 
@@ -8,14 +8,44 @@
 flags = 4
 load_path = "res://.import/mega-mark-1-title.png-060223d4d0fa7cee37e5aa3983bb7dc9.stex"
 
-[node name="Start" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="Environment" id=6]
+background_mode = 4
+background_energy = 9.29
+ambient_light_color = Color( 0.894118, 0.0235294, 0.105882, 1 )
+fog_enabled = true
+fog_color = Color( 0.803922, 0.141176, 0.376471, 1 )
+fog_sun_color = Color( 0.94902, 0.984314, 0.352941, 1 )
+fog_sun_amount = 0.94
+fog_depth_begin = 50.0
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_intensity = 0.4
+glow_strength = 1.02
+glow_bloom = 0.51
+glow_hdr_threshold = 0.0
+glow_hdr_luminance_cap = 6.31
+glow_hdr_scale = 1.58
+
+[node name="ViewportContainer" type="ViewportContainer"]
+margin_right = 1022.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 centered = false
+script = ExtResource( 1 )
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite"]
+stream = ExtResource( 3 )
+volume_db = -16.0
+pitch_scale = 0.9
+autoplay = true
+
+[node name="PlayButton" type="Button" parent="Sprite"]
 margin_left = 555.5
 margin_top = 420.0
 margin_right = 819.5
@@ -26,7 +56,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+[connection signal="pressed" from="Sprite/PlayButton" to="Sprite/PlayButton" method="_on_PlayButton_pressed"]

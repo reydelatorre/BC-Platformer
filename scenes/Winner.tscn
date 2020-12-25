@@ -5,12 +5,10 @@
 [ext_resource path="res://scripts/Winner.gd" type="Script" id=3]
 [ext_resource path="res://assets/music/winner.wav" type="AudioStream" id=4]
 
-[node name="Winner" type="Node2D"]
-script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite"]
 texture = ExtResource( 1 )
 centered = false
+script = ExtResource( 3 )
 
 [node name="Restart" type="Button" parent="."]
 margin_left = 556.0

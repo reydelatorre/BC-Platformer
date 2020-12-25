@@ -2,10 +2,7 @@ extends Area2D
 
 signal insomnia_coin_collected
 
-# TODO: DRY logic in parent class wtf 
-
-# if you can help it, try to avoid collecting troll coins. 
-
+# TODO: DRY :()
 func _on_insomnia_coin_body_entered(body):
 	$AnimationPlayer.play("bounce")
 	$AudioStreamPlayer2DCollected.play()
