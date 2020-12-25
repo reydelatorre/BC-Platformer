@@ -37,6 +37,7 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 		
 	if Input.is_action_just_pressed("fire"):
+		$AudioStreamPlayer2DFire.play()
 		var fireball = FIREBALL.instance()
 		
 		fireball.set_fireball_direction(player_facing)
@@ -63,8 +64,10 @@ func _on_Timer_timeout():
 func process_jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMPFORCE
+		$AudioStreamPlayer2DJump.play()
 	elif Input.is_action_just_pressed("jump") and not is_on_floor() and double_jump_count > 0:
 		velocity.y = JUMPFORCE
+		$AudioStreamPlayer2DJump.play()
 		double_jump_count = double_jump_count - 1
 	
 	if is_on_floor():
@@ -78,6 +81,7 @@ func bounce():
 	
 
 func hurt(var enemy_pos_x):
+	$AudioStreamPlayer2DHurt.play()
 	set_modulate(Color(1, 0.3, 0.3, 0.3))
 	velocity.y = JUMPFORCE * 0.5
 	

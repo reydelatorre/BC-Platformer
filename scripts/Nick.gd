@@ -27,7 +27,7 @@ func _on_Area2D_Top_Hit_body_entered(body):
 	
 	disable_collisions(4, 0, false)
 
-func _on_AnimatedSprite_animation_finished():
+func _on_AudioStreamPlayer2DNoNoNo_finished():
 	if !alive:
 		queue_free()
 
@@ -42,11 +42,12 @@ func _process(delta):
 	else:
 		can_shoot = false
 	
-	if raycast2d_player_in_view.is_colliding():
+	if raycast2d_player_in_view.is_colliding() and alive:
 		animation_state = 'fire'
 		
 		if can_shoot:
 			var cake = CAKE.instance()
+			$AudioStreamPlayer2DCakeForYou.play()
 			get_parent().add_child(cake)
 			cake.position = $Position2D.global_position
 		
@@ -68,4 +69,6 @@ func damage(amount):
 
 	if hit_points <= 0:
 		$AnimatedSprite.play('explode')
+		$AudioStreamPlayer2DExplode.play()
+		$AudioStreamPlayer2DNoNoNo.play()
 		alive = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/enemies/nick_throw.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemies/nick_idle_01.png" type="Texture" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://assets/fx/big_enemy_explode_04.png" type="Texture" id=11]
 [ext_resource path="res://assets/fx/big_enemy_explode_05.png" type="Texture" id=12]
 [ext_resource path="res://assets/fx/big_enemy_explode_02.png" type="Texture" id=13]
+[ext_resource path="res://assets/music/fx/explode.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/music/fx/cake_for_you.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/music/fx/nick_nononono.wav" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,15 +24,15 @@ animations = [ {
 "name": "idle",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "fire",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "explode",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "fire",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -47,6 +50,7 @@ script = ExtResource( 4 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -80,7 +84,21 @@ shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -53.8929, 7.3574 )
+
+[node name="AudioStreamPlayer2DExplode" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+volume_db = -12.0
+pitch_scale = 1.29
+
+[node name="AudioStreamPlayer2DCakeForYou" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+volume_db = 10.0
+
+[node name="AudioStreamPlayer2DNoNoNo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = 12.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="tree_entered" from="RayCast2D" to="." method="_on_RayCast2D_tree_entered"]
 [connection signal="tree_exited" from="RayCast2D" to="." method="_on_RayCast2D_tree_exited"]
 [connection signal="body_entered" from="Area2D_Top_Hit" to="." method="_on_Area2D_Top_Hit_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2DNoNoNo" to="." method="_on_AudioStreamPlayer2DNoNoNo_finished"]

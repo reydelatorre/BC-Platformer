@@ -28,6 +28,7 @@ func set_fireball_direction(dir):
 func _on_Fireball_body_entered(body):
 	can_move = false
 	$AnimatedSprite.play('poof')
+	$AudioStreamPlayer2DCollide.play()
 
 	if body.name.begins_with('enemy_hagay'):
 		body.damage(1)

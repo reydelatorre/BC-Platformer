@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/player/fireball_poof_2.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/fireball_poof_3.png" type="Texture" id=2]
 [ext_resource path="res://assets/player/fireball_poof_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/player/fireball.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Fireball.gd" type="Script" id=5]
+[ext_resource path="res://assets/music/fx/collide.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,6 +38,11 @@ position = Vector2( 0.135338, -0.13533 )
 shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2DCollide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 1.5
 [connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cake_for_you.wav-f06a90d144dc409d77d8cc9b296b3338.sample"
+
+[deps]
+
+source_file="res://assets/music/fx/cake_for_you.wav"
+dest_files=[ "res://.import/cake_for_you.wav-f06a90d144dc409d77d8cc9b296b3338.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -44,6 +44,7 @@ func damage(amount):
 
 	if hit_points <= 0:
 		$AnimatedSprite.play('explode')
+		$AudioStreamPlayer2DExplode.play()
 		alive = false
 
 
