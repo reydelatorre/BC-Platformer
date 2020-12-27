@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 func _on_Area2D_Sides_body_entered(body):
 	if body.name == 'Player':
-		body.hurt(position.x)
+		body.hurt(position.x, 5)
 
 
 func _on_AnimatedSprite_animation_finished():

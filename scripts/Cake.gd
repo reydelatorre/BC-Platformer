@@ -17,4 +17,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Cake_body_entered(body):
 	if body.name == 'Player':
-		body.hurt(position.x)
+		body.hurt(position.x, 2)

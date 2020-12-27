@@ -5,6 +5,7 @@ const GRAVITY = 18
 const JUMPFORCE = -480
 const BOUNCEFORCE = -420
 const LERPSPEED = 0.2
+const MAX_HITPOINTS = 10
 
 const FIREBALL = preload("res://scenes/Fireball.tscn")
 
@@ -17,12 +18,12 @@ var double_jump_count = 1
 var player_facing = PlayerDirection.RIGHT
 
 var velocity = Vector2(0, 0)
-export var hit_points = 10
+export var hit_points = MAX_HITPOINTS
 
 signal mark_hurt
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY
 	
@@ -83,10 +84,10 @@ func bounce():
 	velocity.y = BOUNCEFORCE
 	
 
-func hurt(var enemy_pos_x):
+func hurt(var enemy_pos_x, amount):
 	$AudioStreamPlayer2DHurt.play()
 	
-	emit_signal('mark_hurt')
+	emit_signal('mark_hurt', amount)
 
 	velocity.y = JUMPFORCE * 0.5
 	
@@ -98,7 +99,7 @@ func hurt(var enemy_pos_x):
 	Input.action_release("left")
 	Input.action_release("right")
 	
-	hit_points -= 1
+	hit_points -= amount
 
 	if hit_points <= 0:
 		$Timer.start()

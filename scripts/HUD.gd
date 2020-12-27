@@ -15,7 +15,7 @@ const FULL_HITPOINTS = 10
 func _ready():
 	$insomnia_label.text = String(insomnia_coins) + "/" + String(INSOMNIA_COINS_MAX_WIN)
 	$postman_label.text = String(postman_coins) + "/" + String(POSTMAN_COINS_MAX_WIN)
-	$hitpoints_label.text = String(hitpoints) + "/" + String(FULL_HITPOINTS)
+	$hitpoints_label.text = String(clamp(hitpoints, 0, 10)) + "/" + String(FULL_HITPOINTS)
 
 
 func player_win():
@@ -41,8 +41,8 @@ func _on_postman_coin_collected():
 	_ready()
 
 
-func _on_Player_mark_hurt():
-	hitpoints = hitpoints - 1
+func _on_Player_mark_hurt(amount):
+	hitpoints = hitpoints - amount
 	_ready()
 
 
