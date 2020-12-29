@@ -71,3 +71,8 @@ func damage(amount):
 		$AnimatedSprite.play('explode')
 		$AudioStreamPlayer2DExplode.play()
 		alive = false
+
+
+func _on_AnimatedSprite_animation_finished():
+	if !alive:
+		queue_free()

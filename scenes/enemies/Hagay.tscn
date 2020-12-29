@@ -34,7 +34,7 @@ animations = [ {
 extents = Vector2( 83.0423, 78.4453 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 115.49, 93.3086 )
+extents = Vector2( 60.7316, 46.57 )
 
 [node name="enemy_hagay" type="KinematicBody2D"]
 scale = Vector2( 0.4, 0.4 )
@@ -43,7 +43,6 @@ script = ExtResource( 6 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "crawl"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -60,6 +59,7 @@ collision_layer = 16
 collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Sides"]
+modulate = Color( 0.654902, 0.980392, 0.0156863, 1 )
 position = Vector2( -1.98156, 19.3201 )
 shape = SubResource( 3 )
 

@@ -24,19 +24,20 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": false,
 "name": "jump",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31.1387, 46.3541 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.1888
+height = 29.7307
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 4 )
@@ -48,7 +49,7 @@ animation = "idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.23878, -2.94591 )
+position = Vector2( 0.51122, 7.17909 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
