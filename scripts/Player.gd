@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 280
+const SPEED = 300
 const GRAVITY = 18
 const JUMPFORCE = -480
 const BOUNCEFORCE = -420
