@@ -11,11 +11,15 @@ const POSTMAN_COINS_MAX_WIN = 15
 const TECHLEAD_COINS_MAX_WIN = 2
 const FULL_HITPOINTS = 10
 
+onready var insomnia_label = $insomnia_label
+onready var postman_label = $postman_label
+onready var hitpoints_label = $hitpoints_label
+
 
 func _ready():
-	$insomnia_label.text = String(insomnia_coins) + "/" + String(INSOMNIA_COINS_MAX_WIN)
-	$postman_label.text = String(postman_coins) + "/" + String(POSTMAN_COINS_MAX_WIN)
-	$hitpoints_label.text = String(clamp(hitpoints, 0, 10)) + "/" + String(FULL_HITPOINTS)
+	insomnia_label.text = "%s/%s" % [str(insomnia_coins), str(INSOMNIA_COINS_MAX_WIN)]
+	postman_label.text = "%s/%s" % [str(postman_coins), str(POSTMAN_COINS_MAX_WIN)]
+	hitpoints_label.text = "%s/%s" % [str(clamp(hitpoints, 0, 10)), str(FULL_HITPOINTS)]
 
 
 func player_win():
