@@ -49,6 +49,7 @@ script = ExtResource( 4 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -95,4 +96,3 @@ volume_db = 10.0
 [connection signal="tree_entered" from="RayCast2D" to="." method="_on_RayCast2D_tree_entered"]
 [connection signal="tree_exited" from="RayCast2D" to="." method="_on_RayCast2D_tree_exited"]
 [connection signal="body_entered" from="Area2D_Top_Hit" to="." method="_on_Area2D_Top_Hit_body_entered"]
-[connection signal="finished" from="AudioStreamPlayer2DExplode" to="." method="_on_AudioStreamPlayer2DExplode_finished"]
