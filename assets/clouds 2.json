@@ -1,0 +1,22 @@
+{ "frames": [
+   {
+    "filename": "Intro (clouds 2).aseprite",
+    "frame": { "x": 0, "y": 0, "w": 147, "h": 48 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 116, "y": 137, "w": 147, "h": 48 },
+    "sourceSize": { "w": 1024, "h": 600 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25",
+  "image": "clouds 2.png",
+  "format": "RGBA8888",
+  "size": { "w": 147, "h": 48 },
+  "scale": "1",
+  "frameTags": [
+  ]
+ }
+}

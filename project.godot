@@ -10,11 +10,35 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "AsepriteImportData",
+"language": "GDScript",
+"path": "res://aseprite_importer-f0a0ba69c37c19fec3f1d8f5c33fd555e5655f35/addons/aseprite_importer/classes/AsepriteImportData.gd"
+}, {
+"base": "Node",
+"class": "AsepriteImporter",
+"language": "GDScript",
+"path": "res://aseprite_importer-f0a0ba69c37c19fec3f1d8f5c33fd555e5655f35/addons/aseprite_importer/classes/AsepriteImporter.gd"
+}, {
+"base": "Node",
+"class": "EditorTheme",
+"language": "GDScript",
+"path": "res://aseprite_importer-f0a0ba69c37c19fec3f1d8f5c33fd555e5655f35/addons/aseprite_importer/classes/EditorTheme.gd"
+}, {
+"base": "PanelContainer",
+"class": "JsonDock",
+"language": "GDScript",
+"path": "res://addons/json_editor/json_dock.gd"
+}, {
+"base": "Node",
 "class": "animation_utils",
 "language": "GDScript",
 "path": "res://scripts/animation_utils.gd"
 } ]
 _global_script_class_icons={
+"AsepriteImportData": "",
+"AsepriteImporter": "",
+"EditorTheme": "",
+"JsonDock": "",
 "animation_utils": ""
 }
 
@@ -27,6 +51,28 @@ config/icon="res://icon.png"
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "AsepriteWizard", "json_editor" )
+
+[importer_defaults]
+
+aseprite.wizard.plugin={
+"animated_texture/filename_pattern": "{basename}.{layer}.{animation}.Texture.{extension}",
+"animated_texture/frame_filename_pattern": "{basename}.{layer}.{animation}.{frame}.Texture.{extension}",
+"animated_texture/import_animated_texture": false,
+"exclude_layers_pattern": "",
+"only_visible_layers": false,
+"split_layers": true,
+"sprite_filename_pattern": "{basename}.{layer}.{extension}",
+"texture_atlas/filename_pattern": "{basename}.{layer}.Atlas.{extension}",
+"texture_atlas/frame_filename_pattern": "{basename}.{layer}.{animation}.{frame}.Atlas.{extension}",
+"texture_atlas/import_texture_atlas": false,
+"texture_strip/filename_pattern": "{basename}.{layer}.Strip.{extension}",
+"texture_strip/import_texture_strip": false,
+"trim_images": true
+}
 
 [input]
 

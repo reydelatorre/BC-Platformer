@@ -1,0 +1,22 @@
+{ "frames": [
+   {
+    "filename": "Intro (moon).aseprite",
+    "frame": { "x": 0, "y": 0, "w": 217, "h": 213 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 140, "y": 17, "w": 217, "h": 213 },
+    "sourceSize": { "w": 1024, "h": 600 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25",
+  "image": "moon.png",
+  "format": "RGBA8888",
+  "size": { "w": 217, "h": 213 },
+  "scale": "1",
+  "frameTags": [
+  ]
+ }
+}
