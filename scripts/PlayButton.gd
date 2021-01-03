@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://scenes/levels/Level01.tscn")
+	get_tree().change_scene("res://scenes/Intro.tscn")

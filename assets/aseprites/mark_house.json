@@ -1,0 +1,45 @@
+{ "frames": {
+   "mark_house 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 902, "h": 1164 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 902, "h": 1164 },
+    "sourceSize": { "w": 902, "h": 1164 },
+    "duration": 100
+   },
+   "mark_house 1.aseprite": {
+    "frame": { "x": 902, "y": 0, "w": 902, "h": 1164 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 902, "h": 1164 },
+    "sourceSize": { "w": 902, "h": 1164 },
+    "duration": 100
+   },
+   "mark_house 2.aseprite": {
+    "frame": { "x": 1804, "y": 0, "w": 902, "h": 1164 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 902, "h": 1164 },
+    "sourceSize": { "w": 902, "h": 1164 },
+    "duration": 100
+   },
+   "mark_house 3.aseprite": {
+    "frame": { "x": 2706, "y": 0, "w": 902, "h": 1164 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 902, "h": 1164 },
+    "sourceSize": { "w": 902, "h": 1164 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.25",
+  "image": "mark_house.png",
+  "format": "RGBA8888",
+  "size": { "w": 3608, "h": 1164 },
+  "scale": "1",
+  "frameTags": [
+  ]
+ }
+}
