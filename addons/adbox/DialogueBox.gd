@@ -95,6 +95,11 @@ func _enter_tree():
 	InputBlocker.connect("timeout", self, "_on_InputBlocker_timeout")
 	ShowTimer.connect("timeout", self, "_on_Timer_timeout")
 	hide()
+	
+
+func close() -> void:
+	hide()
+
 
 func _ready():
 	message_sound.loop_mode = message_sound.LOOP_DISABLED
@@ -104,6 +109,7 @@ func _ready():
 	audio = AudioStreamPlayer.new()
 	audio.stream = message_sound
 	add_child(audio)
+
 
 func _process(delta):
 	if hidden:
