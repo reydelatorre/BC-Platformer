@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/aseprites/exports/mark_house/mark_house.png" type="Texture" id=1]
+[ext_resource path="res://assets/environment/mark_house.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -24,6 +25,11 @@ region = Rect2( 2706, 0, 902, 1164 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "bg",
@@ -34,6 +40,5 @@ animations = [ {
 position = Vector2( 581.654, 288.393 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 5 )
-animation = "bg"
-frame = 3
+animation = "empty"
 playing = true

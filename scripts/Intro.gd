@@ -10,14 +10,19 @@ onready var what = $What
 onready var slack = $Slack
 onready var markPhone = $MarkPhone
 onready var ohHiMark = $OhHiMark
+onready var mark = $Mark
+onready var teleport = $Teleport
+onready var markHouse = $TileMap/MarkHouse
 
 var i = 0
 
 func _ready():
 	animationPlayer.play("clouds")
+	markHouse.play("bg")
 	markWorking.hide()
 	darkness.hide()
 	markPhone.hide()
+	mark.hide()
 	
 
 func scene2() -> void:
@@ -34,19 +39,27 @@ func scene3() -> void:
 func scene4() -> void:
 	darkness.hide()
 	markPhone.show()
+	
+
+func final() -> void:
+	markPhone.hide()
+	background.show()
+	tileMap.show()
+	markHouse.play("empty")
+	mark.show()
+	mark.play("idle")
 
 func talk(index: int) -> void:
 	var dialogues = [
 		["it was a long, cold night..."],
-		["mega-mark was burning the midnight oil."],
-		["dotting his i's and crossing his t's, with laser focus."],
+		["Mega Mark was burning the midnight oil."],
+		["dotting his Is and crossing his Ts, with laser focus..."],
 		["some say it would be his best work, yet! all his ducks were in a row."],
-		["then suddenly, over at #prod-support..."],
+		["but then suddenly, over at #prod-support..."],
 		["@here @channel @mark Mark..."],
-		["Magento and AWS is DOWN, GCP is DOWN. cloudflare is DOWN. Phoenix db is thrashing... and what's worse..."],
-		["@Rey is ranting, and raving in #chaos-19 without proper use of Oxford commas..."],
-		["no, no please don't, pleease--"],
-		["can you take a look?"]
+		["AWS is DOWN. GCP is DOWN. cloudflare is DOWN. PWS pages are redirecting to onlyfans.com... and what's worse..."],
+		["@Rey has gone full Robespierre on Oxford commas in #chaos-19..."],
+		["@here @channel @mark can you take a look?"]
 	]
 	
 	dialogueBox.talk(dialogues[index])
@@ -68,5 +81,15 @@ func what() -> void:
 func slack() -> void:
 	slack.play()
 
+
 func ohHiMark() -> void:
 	ohHiMark.play()
+
+
+func fly() -> void:
+	mark.play("fly")
+	teleport.play()
+	
+	
+func exit() -> void:
+	get_tree().change_scene("res://scenes/levels/Level01.tscn")
