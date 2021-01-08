@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/tilemaps/tilemap_front_level01.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/megamark_play.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/player/mark_idle.png" type="Texture" id=4]
+[ext_resource path="res://assets/music/fx/somuchgarbage.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/environment/set2_background.png" type="Texture" id=6]
 [ext_resource path="res://assets/environment/clouds.png" type="Texture" id=7]
 [ext_resource path="res://scenes/coins/insomnia_coin.tscn" type="PackedScene" id=8]
@@ -203,6 +204,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer2DSoMuchGarbage" type="AudioStreamPlayer2D" parent="ViewportContainer/HUD"]
+stream = ExtResource( 5 )
+
 [node name="coins" type="Node" parent="ViewportContainer"]
 
 [node name="insomnia_coin" parent="ViewportContainer/coins" instance=ExtResource( 8 )]
@@ -301,14 +305,14 @@ collision_layer = 16
 collision_mask = 51
 direction = -1
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = -16.0
 autoplay = true
 max_distance = 10000.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 6 )
 [connection signal="mark_hurt" from="ViewportContainer/Player" to="ViewportContainer/HUD" method="_on_Player_mark_hurt"]
 [connection signal="body_entered" from="ViewportContainer/area2d - fallzone" to="ViewportContainer/Player" method="_on_area2d__fallzone_body_entered"]
 [connection signal="insomnia_coin_collected" from="ViewportContainer/coins/insomnia_coin" to="ViewportContainer/HUD" method="_on_insomnia_coin_collected"]

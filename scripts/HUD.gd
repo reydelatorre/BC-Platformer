@@ -25,6 +25,7 @@ func _ready():
 func player_win():
 	return postman_coins == POSTMAN_COINS_MAX_WIN and insomnia_coins == INSOMNIA_COINS_MAX_WIN
 
+
 func player_loses():
 	return hitpoints <= 0
 
@@ -32,7 +33,9 @@ func player_loses():
 func _physics_process(delta):
 	if player_win():
 		get_tree().change_scene("res://scenes/Winner.tscn")
-	pass
+		
+	if postman_coins == 3:
+		$AudioStreamPlayer2DSoMuchGarbage.play()
 
 	
 func _on_insomnia_coin_collected():

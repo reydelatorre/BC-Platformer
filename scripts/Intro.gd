@@ -14,7 +14,11 @@ onready var mark = $Mark
 onready var teleport = $Teleport
 onready var markHouse = $TileMap/MarkHouse
 
-var i = 0
+
+func _process(delta):
+	if Input.is_action_pressed("skip"):
+		get_tree().change_scene("res://scenes/levels/Level01.tscn")
+
 
 func _ready():
 	animationPlayer.play("clouds")
@@ -49,6 +53,7 @@ func final() -> void:
 	mark.show()
 	mark.play("idle")
 
+
 func talk(index: int) -> void:
 	var dialogues = [
 		["it was a long, cold night..."],
@@ -57,8 +62,8 @@ func talk(index: int) -> void:
 		["some say it would be his best work, yet! all his ducks were in a row."],
 		["but then suddenly, over at #prod-support..."],
 		["@here @channel @mark Mark..."],
-		["AWS is DOWN. GCP is DOWN. cloudflare is DOWN. PWS pages are redirecting to onlyfans.com... and what's worse..."],
-		["@Rey has gone full Robespierre on Oxford commas in #chaos-19..."],
+		["Magento is DOWN. PWS pages are redirecting to onlyfans... and what's worse..."],
+		["Oxford commas have been outlawed by national decree."],
 		["@here @channel @mark can you take a look?"]
 	]
 	

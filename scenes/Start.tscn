@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Start.gd" type="Script" id=1]
 [ext_resource path="res://scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://assets/music/megamark_splash.wav" type="AudioStream" id=3]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/mega-mark-1-title.png-060223d4d0fa7cee37e5aa3983bb7dc9.stex"
+[ext_resource path="res://assets/start/mega-mark-1-title.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/mark_idle.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/JetBrainsMono-VariableFont_wght.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -27,6 +26,10 @@ glow_hdr_threshold = 0.0
 glow_hdr_luminance_cap = 6.31
 glow_hdr_scale = 1.58
 
+[sub_resource type="DynamicFont" id=3]
+size = 19
+font_data = ExtResource( 6 )
+
 [node name="ViewportContainer" type="ViewportContainer"]
 margin_right = 1022.0
 margin_bottom = 599.0
@@ -35,7 +38,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 1 )
+position = Vector2( -0.5, -1 )
+texture = ExtResource( 4 )
 centered = false
 script = ExtResource( 1 )
 
@@ -50,6 +54,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="mark_idle" type="Sprite" parent="Sprite"]
+position = Vector2( 129.1, 307.7 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 __meta__ = {
@@ -60,4 +69,43 @@ __meta__ = {
 stream = ExtResource( 3 )
 volume_db = -5.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SkipIntro" type="Label" parent="CanvasLayer"]
+margin_left = 17.5
+margin_top = 562.0
+margin_right = 468.5
+margin_bottom = 588.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.309804, 0.407843, 0.407843, 1 )
+text = "press \"return\" to start; \"S\" to skip intro"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version#" type="Label" parent="CanvasLayer"]
+margin_left = 949.0
+margin_top = 11.0
+margin_right = 1004.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "v1.02"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cast" type="Label" parent="CanvasLayer"]
+margin_left = 466.0
+margin_top = 410.5
+margin_right = 521.0
+margin_bottom = 436.5
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "cast: Hagay, Nick C., Steph, Andrew M., 
+TIFF!, Daniel C., Alastair"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Sprite/PlayButton" to="Sprite/PlayButton" method="_on_PlayButton_pressed"]

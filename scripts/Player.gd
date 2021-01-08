@@ -48,7 +48,7 @@ func _physics_process(delta) -> void:
 			
 		get_parent().add_child(fireball)
 		fireball.position = $Position2D.global_position
-	
+		
 	process_jump()
 		
 	move_and_slide(velocity, Vector2.UP)
