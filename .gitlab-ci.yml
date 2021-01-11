@@ -12,7 +12,7 @@ windows:
   script:
     - mkdir -v -p build/windows
     - godot -v --export "Windows Desktop" ./build/windows/$EXPORT_NAME.exe
-  artificats:
+  artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - build/windows
@@ -22,7 +22,7 @@ macOS:
   script:
     - mkdir -v -p build/macOS
     - godot -v --export "macOS" ./build/macOS/$EXPORT_NAME.dmg
-  artificats:
+  artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - build/macOS
