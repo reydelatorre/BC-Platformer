@@ -17,12 +17,12 @@ windows:
     paths:
       - build/windows
 
-# macOS:
-#   stage: export
-#   script:
-#     - mkdir -v -p build/macOS
-#     - godot -v --export "macOS" ./build/macOS/$EXPORT_NAME.dmg
-#   artificats:
-#     name: $EXPORT_NAME-$CI_JOB_NAME
-#     paths:
-#       - build/macOS
+macOS:
+  stage: export
+  script:
+    - mkdir -v -p build/macOS
+    - godot -v --export "macOS" ./build/macOS/$EXPORT_NAME.dmg
+  artificats:
+    name: $EXPORT_NAME-$CI_JOB_NAME
+    paths:
+      - build/macOS
