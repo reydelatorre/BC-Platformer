@@ -25,9 +25,10 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Web Build
         run: |
+          echo "test debug"
+          pwd
           mkdir -v -p build/web
-          cd $EXPORT_NAME
-          godot -v --export "HTML5" build/web/index.html
+          godot -v --export "HTML5" "build/web/index.html"
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
