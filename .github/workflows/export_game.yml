@@ -16,7 +16,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2.0.0
     - name: debug stuffs
-       run: |
+       run:
         echo "test debug"
         pwd
     - name: export
