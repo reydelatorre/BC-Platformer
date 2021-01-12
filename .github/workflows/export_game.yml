@@ -1,4 +1,4 @@
-name: Megamark build/publish
+name: Build/Export Megamark
 
 on:
   push:
