@@ -15,11 +15,12 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2.0.0
-    - name: export
-      uses: firebelley/godot-export@v1.1.0
-      run: |
+    - name: debug stuffs
+       run: |
         echo "test debug"
         pwd
+    - name: export
+      uses: firebelley/godot-export@v1.1.0     
       with:
         base_version: 0.1.0
         godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_linux_headless.64.zip
