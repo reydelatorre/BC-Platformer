@@ -21,8 +21,21 @@ macOS:
   stage: export
   script:
     - mkdir -v -p build/macOS
-    - godot -v --export "macOS" ./build/macOS/$EXPORT_NAME.dmg
+    - godot -v --export "Mac OSX" ./build/macOS/$EXPORT_NAME.dmg
   artifacts:
     name: $EXPORT_NAME-$CI_JOB_NAME
     paths:
       - build/macOS
+
+pages:
+  stage: deploy
+  dependencies:
+    - web
+  script:
+    - rm -rf public
+    - cp -r build/web public
+  artifacts:
+    paths:
+      - public
+  only:
+    - develop
